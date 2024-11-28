@@ -1,7 +1,15 @@
-﻿internal class Program
+﻿
+namespace SimpleCalculator
 {
-    private static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Hello, World!");
+        private static void Main(string[] args)
+        {
+            ICalculator calculator = new Calculator();
+
+
+            
+        }
     }
 }
+
