@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Calc_DependencyInjection
 {
     internal class Logger : ILogger
     {
-        void ILogger.Error()
+        public void Error(string message)
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"[ERROR] {message}");
+            Console.ResetColor();
         }
 
-        void ILogger.Event()
+        public void Event(string message)
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine($"[EVENT] {message}");
+            Console.ResetColor();
         }
     }
 }

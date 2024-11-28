@@ -1,16 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DICalculator
+namespace Calc_DependencyInjection
 {
     public class Calculator : ICalculator
     {
-        float ICalculator.Addition(float value1, float value2)
+        private readonly ILogger logger;
+
+        public Calculator(ILogger logger)
         {
-            return value1 + value2;
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        }
+
+        public float Addition(float value1, float value2)
+        {
+            logger.Event("Calculation started");
+            float result = value1 + value2;
+            logger.Event("Calculation completed");
+            return result;
         }
     }
 }
